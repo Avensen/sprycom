@@ -13,9 +13,9 @@ namespace Sprycom
             do
             {
                 token = lexer.NextToken();
-                if (token.Kind != SyntaxKind.WhitespaceToken) break;
+                if (token.Kind != TokenKind.WhitespaceToken) break;
 
-            } while (token.Kind != SyntaxKind.EOFToken);
+            } while (token.Kind != TokenKind.EOFToken);
         }
     }
 }

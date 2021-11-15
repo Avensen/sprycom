@@ -1,6 +1,6 @@
 namespace Sprycom
 {
-    enum SyntaxKind
+    enum TokenKind
     {
         NumberToken,
         WhitespaceToken,

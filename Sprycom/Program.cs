@@ -17,7 +17,7 @@ namespace Sprycom
                 while (true)
                 {
                     var token = lexer.NextToken();
-                    if (token.Kind == SyntaxKind.EOFToken)
+                    if (token.Kind == TokenKind.EOFToken)
                         break;
                     Write($"{token.Kind}: {token.Text }");
                     if (token.Value != null)

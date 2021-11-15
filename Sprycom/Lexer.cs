@@ -29,7 +29,7 @@ namespace Sprycom
         public SyntaxToken NextToken()
         {
             if (position >= text.Length)
-                return new SyntaxToken(SyntaxKind.EOFToken, position++, "\0", null);
+                return new SyntaxToken(TokenKind.EOFToken, position++, "\0", null);
 
             if (char.IsDigit(Current))
             {
@@ -42,7 +42,7 @@ namespace Sprycom
                 var _text = text.Substring(start, length);
                 int.TryParse(_text, out var value);
 
-                return new SyntaxToken(SyntaxKind.NumberToken, start, _text, value);
+                return new SyntaxToken(TokenKind.NumberToken, start, _text, value);
             }
 
             if (char.IsWhiteSpace(Current))
@@ -55,23 +55,23 @@ namespace Sprycom
                 var _text = text.Substring(start, length);
 
                 return new SyntaxToken(
-                    SyntaxKind.WhitespaceToken, start, _text, null);
+                    TokenKind.WhitespaceToken, start, _text, null);
             }
 
             if (Current == '+')
-                return new SyntaxToken(SyntaxKind.PlusToken, position++, "+", null);
+                return new SyntaxToken(TokenKind.PlusToken, position++, "+", null);
             if (Current == '-')
-                return new SyntaxToken(SyntaxKind.MinusToken, position++, "-", null);
+                return new SyntaxToken(TokenKind.MinusToken, position++, "-", null);
             if (Current == '*')
-                return new SyntaxToken(SyntaxKind.StarToken, position++, "*", null);
+                return new SyntaxToken(TokenKind.StarToken, position++, "*", null);
             if (Current == '/')
-                return new SyntaxToken(SyntaxKind.SlashToken, position++, "/", null);
+                return new SyntaxToken(TokenKind.SlashToken, position++, "/", null);
             if (Current == '(')
-                return new SyntaxToken(SyntaxKind.OpenBracketToken, position++, "(", null);
+                return new SyntaxToken(TokenKind.OpenBracketToken, position++, "(", null);
             if (Current == ')')
-                return new SyntaxToken(SyntaxKind.ClosedBracketToken, position++, ")", null);
+                return new SyntaxToken(TokenKind.ClosedBracketToken, position++, ")", null);
 
-            return new SyntaxToken(SyntaxKind.BadToken, position, text.Substring(position++, 1), null);
+            return new SyntaxToken(TokenKind.BadToken, position, text.Substring(position++, 1), null);
         }
     }
 }
