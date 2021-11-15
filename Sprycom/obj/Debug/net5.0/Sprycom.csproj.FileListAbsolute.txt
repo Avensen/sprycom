@@ -1,0 +1,16 @@
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\Sprycom.exe
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\Sprycom.deps.json
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\Sprycom.runtimeconfig.json
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\Sprycom.runtimeconfig.dev.json
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\Sprycom.dll
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\ref\Sprycom.dll
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\bin\Debug\net5.0\Sprycom.pdb
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.csproj.AssemblyReference.cache
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.AssemblyInfoInputs.cache
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.AssemblyInfo.cs
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.csproj.CoreCompileInputs.cache
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.dll
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\ref\Sprycom.dll
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.pdb
+C:\Users\anerj\Documents\GitHub\sprycom\Sprycom\obj\Debug\net5.0\Sprycom.genruntimeconfig.cache
