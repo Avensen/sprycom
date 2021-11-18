@@ -26,7 +26,13 @@ namespace Sprycom
                 PrettyPrint(syntaxTree.Root);
                 ForegroundColor = color;
 
-                if (syntaxTree.Diagnostics.Any())
+                if (!syntaxTree.Diagnostics.Any())
+                {
+                    var e = new Evaluator(syntaxTree.Root);
+                    var result = e.Evaluate();
+                    WriteLine(result);
+                }
+                else
                 {
                     ForegroundColor = DarkRed;
 

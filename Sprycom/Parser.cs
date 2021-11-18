@@ -64,17 +64,32 @@ namespace Sprycom
 
         public SyntaxTree Parse()
         {
-            var expression = ParseExpression();
+            var expression = ParseTerm();
             var EOFToken = Match(TokenKind.EOFToken);
             return new SyntaxTree(diagnostics, expression, EOFToken);
         }
 
-        public ExpressionSyntax ParseExpression()
+        public ExpressionSyntax ParseTerm()
         {
-            var left = ParsePrimaryExpression();
+            var left = ParseFactor();
 
             while (Current.Kind == TokenKind.PlusToken
                 || Current.Kind == TokenKind.MinusToken)
+            {
+                var operatorToken = NextToken();
+                var right = ParseFactor();
+                left = new BinaryExpressionSyntax(left, right, operatorToken);
+            }
+
+            return left;
+        }
+
+        public ExpressionSyntax ParseFactor()
+        {
+            var left = ParsePrimaryExpression();
+
+            while (Current.Kind == TokenKind.StarToken
+                || Current.Kind == TokenKind.SlashToken)
             {
                 var operatorToken = NextToken();
                 var right = ParsePrimaryExpression();
