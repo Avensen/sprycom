@@ -14,6 +14,7 @@ namespace Sprycom
         EOFToken,
         BadToken,
         NumberExpression,
-        BinaryExpresion
+        BinaryExpresion,
+        BracketedExpression
     }
 }

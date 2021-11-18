@@ -52,4 +52,27 @@ namespace Sprycom
             yield return Right;
         }
     }
+
+    sealed class BracketedExpressionSyntax : ExpressionSyntax
+    {
+        public BracketedExpressionSyntax(SyntaxToken openBracketToken, SyntaxToken cosedBracketToken, ExpressionSyntax expression)
+        {
+            OpenBracketToken = openBracketToken;
+            ClosedBracketToken = cosedBracketToken;
+            Expression = expression;
+        }
+
+        public override TokenKind Kind => TokenKind.BracketedExpression;
+
+        public SyntaxToken OpenBracketToken { get; }
+        public SyntaxToken ClosedBracketToken { get; }
+        public ExpressionSyntax Expression { get; }
+
+        public override IEnumerable<SyntaxNode> GetChildren()
+        {
+            yield return OpenBracketToken;
+            yield return Expression;
+            yield return ClosedBracketToken;
+        }
+    }
 }

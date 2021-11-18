@@ -36,6 +36,8 @@ namespace Sprycom
                 
                 throw new Exception("Unexpected BO");
             }
+            if (node is BracketedExpressionSyntax be)
+                return EvaluateExpression(be.Expression);
 
             throw new Exception("Unexpected NE");
         }

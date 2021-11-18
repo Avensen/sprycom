@@ -55,8 +55,22 @@ namespace Sprycom
             return new SyntaxToken(kind, Current.Position, null, null);
         }
 
+        private ExpressionSyntax ParseExpression()
+        {
+            return ParseTerm();
+        }
+
         private ExpressionSyntax ParsePrimaryExpression()
         {
+            if (Current.Kind == TokenKind.OpenBracketToken)
+            {
+                var left = NextToken();
+                var expression = ParseExpression();
+                var right = Match(TokenKind.ClosedBracketToken);
+
+                return new BracketedExpressionSyntax(left, right, expression);
+            }
+
             var numberToken = Match(TokenKind.NumberToken);
 
             return new NumberExpressionSyntax(numberToken);
