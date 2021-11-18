@@ -1,4 +1,4 @@
-namespace Sprycom
+namespace Sprycom.Core
 {
     enum TokenKind
     {

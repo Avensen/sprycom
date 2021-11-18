@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Sprycom
+namespace Sprycom.Core
 {
     class SyntaxToken : SyntaxNode
     {

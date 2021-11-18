@@ -2,6 +2,7 @@
 using System.Collections;
 using static System.Console;
 using static System.ConsoleColor;
+using Sprycom.Core;
 
 namespace Sprycom
 {
@@ -9,6 +10,8 @@ namespace Sprycom
     {
         static void Main(string[] args)
         {
+            bool showTree = false;
+
             while (true)
             {
                 Write("> ");
@@ -17,14 +20,27 @@ namespace Sprycom
                 if (string.IsNullOrWhiteSpace(line))
                     return;
 
-                Parser parser = new Parser(line);
+                if (line == "--showtree")
+                {
+                    showTree = !showTree;
+                    WriteLine(showTree ? "Showing parse tree" : "Not showing parse tree");
+                    continue;
+                }
+                if (line == "--clear")
+                {
+                    Clear();
+                    continue;
+                }
 
-                var syntaxTree = parser.Parse();
+                var syntaxTree = SyntaxTree.Parse(line);
 
-                var color = ForegroundColor;
-                ForegroundColor = DarkGray;
-                PrettyPrint(syntaxTree.Root);
-                ForegroundColor = color;
+                if (showTree)
+                {
+                    var color = ForegroundColor;
+                    ForegroundColor = DarkGray;
+                    PrettyPrint(syntaxTree.Root);
+                    ForegroundColor = color;
+                }
 
                 if (!syntaxTree.Diagnostics.Any())
                 {
@@ -34,6 +50,7 @@ namespace Sprycom
                 }
                 else
                 {
+                    var color = ForegroundColor;
                     ForegroundColor = DarkRed;
 
                     foreach (var diagnostic in syntaxTree.Diagnostics)

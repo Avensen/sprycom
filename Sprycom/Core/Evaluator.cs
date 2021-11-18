@@ -1,6 +1,6 @@
 using System;
 
-namespace Sprycom
+namespace Sprycom.Core
 {
     class Evaluator
     {

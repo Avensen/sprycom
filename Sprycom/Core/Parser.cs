@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace Sprycom
+namespace Sprycom.Core
 {
     class Parser
     {

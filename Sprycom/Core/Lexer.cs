@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-namespace Sprycom
+
+namespace Sprycom.Core
 {
     class Lexer
     {
