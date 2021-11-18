@@ -1,4 +1,4 @@
-﻿using static System.Console;
+using static System.Console;
 namespace Sprycom
 {
     class Program
@@ -25,6 +25,25 @@ namespace Sprycom
                     WriteLine();
                 }
             }
+
+        static void PrettyPrint(SyntaxNode node, string indent = "", bool isLast = true)
+        {
+            var marker = isLast ? "└──" : "├──";
+            Write(indent);
+            Write(marker);
+            Write(node.Kind);
+
+            if (node is SyntaxToken t && t.Value != null)
+                Write(" " + t.Value);
+
+            WriteLine();
+
+            indent += isLast ? "    " : "│   ";
+
+            var lastChild = node.GetChildren().LastOrDefault();
+
+            foreach (var child in node.GetChildren())
+                PrettyPrint(child, indent, child == lastChild);
         }
     }
 }
