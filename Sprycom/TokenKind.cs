@@ -12,6 +12,8 @@ namespace Sprycom
         ClosedBracketToken,
         EOLToken,
         EOFToken,
-        BadToken
+        BadToken,
+        NumberExpression,
+        BinaryExpresion
     }
 }

@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Sprycom
 {
-    class SyntaxToken
+    class SyntaxToken : SyntaxNode
     {
-        public TokenKind Kind { get; }
+        public override TokenKind Kind { get; }
         public int Position { get; }
         public string Text { get; }
 
@@ -14,6 +17,10 @@ namespace Sprycom
             Text = text;
             Value = value;
         }
+
+        public override IEnumerable<SyntaxNode> GetChildren()
+        {
+            return Enumerable.Empty<SyntaxToken>();
+        }
     }
 }
-

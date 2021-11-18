@@ -1,10 +1,9 @@
+using System.Collections;
+using System.Collections.Generic;
 namespace Sprycom
 {
     class Lexer
     {
-        private readonly string text;
-        private int position;
-
         public Lexer(string _text)
         {
             this.text = _text;
@@ -19,6 +18,12 @@ namespace Sprycom
                 return text[position];
             }
         }
+        private readonly string text;
+        private int position;
+
+        private List<string> diagnostics = new List<string>();
+
+        public IEnumerable<string> Diagnostics => diagnostics;
 
         private void Next()
         {
@@ -40,7 +45,11 @@ namespace Sprycom
 
                 var length = position - start;
                 var _text = text.Substring(start, length);
-                int.TryParse(_text, out var value);
+
+                if (!int.TryParse(_text, out var value))
+                {
+                    diagnostics.Add($"ERROR: The number {text} cannot be represented by an Int32");
+                }
 
                 return new SyntaxToken(TokenKind.NumberToken, start, _text, value);
             }
@@ -71,6 +80,7 @@ namespace Sprycom
             if (Current == ')')
                 return new SyntaxToken(TokenKind.ClosedBracketToken, position++, ")", null);
 
+            diagnostics.Add($"Error: Bad character input: '{Current}'");
             return new SyntaxToken(TokenKind.BadToken, position, text.Substring(position++, 1), null);
         }
     }
